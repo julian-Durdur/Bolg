@@ -900,9 +900,9 @@ var adminPolicy = [_passport2.default.authenticate('jwt', { session: false }), _
 
 articleRouter.route('/').get(_articles2.default.findAll);
 
-articleRouter.route('/add').post(_articles2.default.create);
+articleRouter.route('/add').post(adminPolicy, _articles2.default.create);
 
-articleRouter.route('/:id').get(_articles2.default.findOne).put(_articles2.default.update).delete(_articles2.default.delete);
+articleRouter.route('/:id').get(_articles2.default.findOne).put(adminPolicy, _articles2.default.update).delete(adminPolicy, _articles2.default.delete);
 
 /***/ }),
 /* 29 */
